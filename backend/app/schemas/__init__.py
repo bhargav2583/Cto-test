@@ -1,0 +1,1 @@
+Pydantic schemas for CV and job import endpoints.
