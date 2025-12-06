@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+.env
+.env.local
+backend/.env
+frontend/.env
+.venv/
+venv/
+
+# FastAPI static uploads
+backend/static/*
+!backend/static/.gitkeep
+
+# Node / Vite
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+frontend/dist/
+.DS_Store
+.idea/
+.vscode/
+coverage/
