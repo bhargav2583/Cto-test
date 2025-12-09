@@ -22,15 +22,17 @@ class Settings(BaseSettings):
 
     app_name: str = "FastAPI Backend"
     environment: str = Field(default="development")
-    backend_cors_origins: List[str] = Field(
-        default_factory=lambda: ["http://localhost:5173"]
-    )
+    backend_cors_origins: List[str] = Field(default_factory=lambda: ["http://localhost:5173"])
     log_level: str = Field(default="INFO")
 
     gmail_client_id: str | None = None
     gmail_client_secret: str | None = None
     gmail_redirect_uri: str | None = None
+
     openai_api_key: str | None = None
+    openai_model: str = Field(default="gpt-3.5-turbo")
+    llm_temperature: float = Field(default=0.7, ge=0.0, le=2.0)
+    llm_max_tokens: int = Field(default=1500, ge=1)
 
     static_dir: Path = BACKEND_DIR / "static"
 
