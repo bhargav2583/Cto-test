@@ -15,6 +15,10 @@ venv/
 # FastAPI static uploads
 backend/static/*
 !backend/static/.gitkeep
+!backend/static/cvs/
+!backend/static/cvs/.gitkeep
+!backend/static/jobs/
+!backend/static/jobs/.gitkeep
 
 # Node / Vite
 node_modules/
