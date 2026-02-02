@@ -57,6 +57,7 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 The backend exposes:
 - `GET /api/health` — health check endpoint
 - `GET /` — root status message
+- `POST /api/email/preview` — AI-powered cover letter generation (see [Email Generation Service docs](backend/EMAIL_GENERATION_SERVICE.md))
 - Static uploads served from `backend/static` at `/static`
 - CORS enabled for origins configured via `BACKEND_CORS_ORIGINS`
 
@@ -86,9 +87,36 @@ npm run dev:backend  # Backend only
 npm run dev:frontend # Frontend only
 ```
 
+## Testing
+
+### Backend Tests
+
+```bash
+cd backend
+pip install -r requirements-dev.txt
+pytest
+```
+
+The backend includes unit tests for the email generation service with mocked LLM calls.
+
 ## Tooling
 
 - **Backend** — formatted with [Black](https://black.readthedocs.io/) and linted with [Ruff](https://docs.astral.sh/ruff/). Configuration lives in `backend/pyproject.toml`.
 - **Frontend** — linted with ESLint + TypeScript and formatted with Prettier. See `frontend/.eslintrc.cjs` and `frontend/.prettierrc`.
+
+## Features
+
+### Email Generation Service
+
+AI-powered professional cover letter generation using OpenAI. Combines your CV, job description, and job title to create personalized cover letters with appropriate subject lines.
+
+**Key features:**
+- Multiple tone options (professional, enthusiastic, formal)
+- Automatic fallback when LLM fails
+- Configurable prompts and models
+- Comprehensive error handling
+- Full test coverage
+
+See the [Email Generation Service documentation](backend/EMAIL_GENERATION_SERVICE.md) for detailed information.
 
 You're ready to start iterating on features 🚀
